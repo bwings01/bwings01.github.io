@@ -29,3 +29,24 @@
 .concept-grid article:hover {
     background-color: #f0f0f0;
 }
+
+.reference-list {
+    padding-left: 30px;
+}
+
+.reference-list li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.reference-list a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.reference-list a:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
