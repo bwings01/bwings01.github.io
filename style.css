@@ -13,3 +13,19 @@
 .page-grid article:hoveer {
     background-color: #f0f0f0;
 }
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.concept-grid article {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.concept-grid article:hover {
+    background-color: #f0f0f0;
+}
