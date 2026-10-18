@@ -1,3 +1,15 @@
-body {
-    background-color: rgb(255, 255, 255);
+.page-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.page-grid article {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.page-grid article:hoveer {
+    background-color: #f0f0f0;
 }
