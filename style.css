@@ -1,29 +1,38 @@
-/* General CSS */
+/* Color Palette CSS */
+:root {
+    --bg-color: #211f29;
+    --surface-color: #302d3a;
+    --surface-hover: #443e50;
+    --primary-color: #272431;
+    --nav-color: #353141;
+    --accent-color: #b3a3c7;
+    --text-color: #ded8e5;
+    --muted-text: #c3b9cc;
+    --border-color: #50495c;
+}
+
+
+/* Body CSS */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f6f8fc;
-    color: #1c3556;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
 /* Header CSS */
 header {
-    background-color: #101c30;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     padding: 40px 20px;
     text-align: center;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
 header p {
     font-size: 1.1rem;
-    color: #bacae0;
+    color: var(--muted-text);
     margin-top: 0;
 }
 
@@ -33,12 +42,12 @@ nav {
     justify-content: center;
     flex-wrap: wrap;
     gap: 25px;
-    background-color: #253953;
+    background-color: var(--nav-color);
     padding: 15px 20px;
 }
 
 nav a {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
     padding: 8px 12px;
@@ -47,7 +56,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #3b82f6;
+    background-color: var(--surface-hover);
 }
 
 /* Main CSS */
@@ -62,25 +71,25 @@ main section {
 }
 
 main h2 {
-    color: #182d47;
+    color: var(--text-color);
     margin-bottom: 15px;
 }
 
 main h3 {
-    color: #2563eb;
+    color: var(--accent-color);
 }
 
 /* Footer CSS */
 footer {
-    background-color: #101c30;
-    color: #bacae0;
+    background-color: var(--primary-color);
+    color: var(--muted-text);
     text-align: center;
     padding: 25px 20px;
     margin-top: 40px;
 }
 
 footer a {
-    color: #75b7ff;
+    color: var(--accent-color);
     text-decoration: none;
 }
 
@@ -90,18 +99,19 @@ footer a:hover {
 
 /* Homepage CSS */
 .page-grid article {
-    background-color: white;
+    background-color: var(--surface-color);
     padding: 25px;
-    border: 1px solid #d1d5db;
+    border: 1px solid var(--border-color);
     border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
     transition: transform 0.2s ease,
                 box-shadow 0.2s ease;
 }
 
 .page-grid article:hover {
+    background-color: var(--surface-hover);
     transform: translateY(-4px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .page-grid article h3 {
@@ -109,7 +119,7 @@ footer a:hover {
 }
 
 .page-grid article a {
-    color: #2563eb;
+    color: var(--accent-color);
     text-decoration: none;
 }
 
@@ -119,23 +129,24 @@ footer a:hover {
 
 /* Key Concepts Page CSS */
 .concept-card {
-    background-color: white;
+    background-color: var(--surface-color);
     padding: 25px;
-    border: 1px solid #d1d5db;
-    border-left: 4px solid #3b82f6;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
     border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
     transition: transform 0.2s ease,
                 box-shadow 0.2s ease;
 }
 
 .concept-card:hover {
+    background-color: var(--surface-hover);
     transform: translateY(-4px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .concept-card h4 {
-    color: #182d47;
+    color: var(--accent-color);
     margin-top: 0;
     font-size: 1.2rem;
 }
@@ -152,17 +163,17 @@ footer a:hover {
 .reference-list li {
     margin-bottom: 20px;
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .reference-list a {
-    color: #2563eb;
+    color: var(--accent-color);
     font-weight: bold;
     text-decoration: none;
 }
 
 .reference-list a:hover {
-    color: #1e40af;
+    color: var(--accent-color);
     text-decoration: underline;
 }
 
@@ -171,26 +182,37 @@ footer a:hover {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    background-color: white;
+    background-color: var(--surface-color);
+    color: var(--text-color);
 }
 
-#ai-milestones-table th, #ai-milestones-table td{
-    border: 1px solid #d1d5db;
+#ai-milestones-table th,
+#ai-milestones-table td {
+    border: 1px solid var(--border-color);
     padding: 15px;
     text-align: left;
 }
 
-#ai-milestones-table th{
-    background-color: #253953;
-    color: white;
+#ai-milestones-table th {
+    background-color: var(--nav-color);
+    color: var(--accent-color);
 }
 
-#ai-milestones-table tr:nth-child(even){
-    background-color: #f1f5f9;
+#ai-milestones-table tbody tr:nth-child(even) {
+    background-color: #383342;
 }
 
-#ai-milestones-table tr:hover{
-    background-color: #e2e8f0;
+#ai-milestones-table tbody tr:hover {
+    background-color: var(--surface-hover);
+}
+
+/* Applications Page CSS */
+main section {
+    background-color: var(--surface-color);
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
 /* Responsive CSS */
@@ -231,4 +253,14 @@ footer a:hover {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+}
+
+/* Image Styling */
+main img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 25px auto;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
 }
