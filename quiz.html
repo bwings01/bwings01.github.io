@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>AI Self-Assessment Quiz</title>
+</head>
+<body>
+  <!-- Website header and navigation -->
+  <header>
+    <h1>The Evolution of Artificial Intelligence</h1>
+    <p>Exploring the past, present, and future of AI</p>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="applications.html">Applications</a>
+    <a href="keyconcepts.html">Key Concepts</a>
+    <a href="quiz.html" class="active">Quiz</a>
+    <a href="about.html">About</a>
+    <a href="references.html">References</a>
+  </nav>
+  <main>
+    <!-- Quiz introduction and start screen -->
+    <section id="quiz-intro">
+      <h2>AI Self-Assessment Quiz</h2>
+      <p>Test what you have learned from the History, Applications, and Key Concepts pages. The quiz has ten questions worth 10 points each.</p>
+      <ul>
+        <li>You have <strong>10 minutes</strong> to finish. The quiz submits automatically when time runs out.</li>
+        <li>You need a score of <strong>70 or higher</strong> to pass.</li>
+        <li>Fill-in-the-blank answers are not case-sensitive.</li>
+        <li>Questions marked "Select all that apply" are only correct if every correct choice is selected and no incorrect choice is selected.</li>
+      </ul>
+      <button type="button" id="start-btn" class="btn btn-primary">Start Quiz</button>
+    </section>
+
+    <!-- Results panel, filled in by quiz.js after submission -->
+    <section id="quiz-results" hidden>
+      <h2>Quiz Results</h2>
+      <div class="results-summary">
+        <div class="summary-item">
+          <span class="summary-label">Result</span>
+          <span id="result-status" class="summary-value"></span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Total Score</span>
+          <span id="result-score" class="summary-value"></span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Time Spent</span>
+          <span id="result-time" class="summary-value"></span>
+        </div>
+      </div>
+      <h3>Question Breakdown</h3>
+      <table id="results-table" class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Result</th>
+            <th>Score</th>
+            <th>Your Answer</th>
+            <th>Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button type="button" id="retake-btn" class="btn btn-primary">Retake Quiz</button>
+    </section>
+
+    <!-- The quiz form, hidden until the user presses Start -->
+    <form id="quiz-form" hidden>
+      <!-- Countdown timer that stays visible while scrolling -->
+      <div id="timer-bar">
+        <span>Time Remaining:</span>
+        <span id="timer">10:00</span>
+      </div>
+
+      <!-- Question 1: fill in the blank -->
+      <fieldset class="question" id="q1-card">
+        <legend>1. Fill in the blank</legend>
+        <p>In 1950, British mathematician <input type="text" name="q1" class="blank" autocomplete="off" aria-label="Question 1 answer"> published <em>Computing Machinery and Intelligence</em>, which asked whether machines could think.</p>
+      </fieldset>
+
+      <!-- Question 2: fill in the blank -->
+      <fieldset class="question" id="q2-card">
+        <legend>2. Fill in the blank</legend>
+        <p>The Dartmouth Summer Research Project, which helped establish AI as a field of study, took place in the year <input type="text" name="q2" class="blank blank-short" inputmode="numeric" maxlength="4" autocomplete="off" aria-label="Question 2 answer">.</p>
+      </fieldset>
+
+      <!-- Question 3: fill in the blank -->
+      <fieldset class="question" id="q3-card">
+        <legend>3. Fill in the blank</legend>
+        <p>In 1997, IBM's chess-playing computer <input type="text" name="q3" class="blank" autocomplete="off" aria-label="Question 3 answer"> defeated world champion Garry Kasparov.</p>
+      </fieldset>
+
+      <!-- Question 4: multiple choice (one correct answer) -->
+      <fieldset class="question" id="q4-card">
+        <legend>4. Multiple choice</legend>
+        <p>Which branch of AI allows computers to learn from data instead of relying entirely on explicit rules?</p>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="q4" value="a"> Computer Vision</label>
+          <label class="choice"><input type="radio" name="q4" value="b"> Machine Learning</label>
+          <label class="choice"><input type="radio" name="q4" value="c"> Expert Systems</label>
+          <label class="choice"><input type="radio" name="q4" value="d"> Robotics</label>
+        </div>
+      </fieldset>
+
+      <!-- Question 5: multiple choice (one correct answer) -->
+      <fieldset class="question" id="q5-card">
+        <legend>5. Multiple choice</legend>
+        <p>Which AI program defeated world Go champion Lee Sedol in 2016?</p>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="q5" value="a"> Deep Blue</label>
+          <label class="choice"><input type="radio" name="q5" value="b"> ELIZA</label>
+          <label class="choice"><input type="radio" name="q5" value="c"> AlphaGo</label>
+          <label class="choice"><input type="radio" name="q5" value="d"> Watson</label>
+        </div>
+      </fieldset>
+
+      <!-- Question 6: multiple choice (one correct answer) -->
+      <fieldset class="question" id="q6-card">
+        <legend>6. Multiple choice</legend>
+        <p>A self-driving car detecting pedestrians and road signs through its cameras is an example of which AI field?</p>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="q6" value="a"> Natural Language Processing</label>
+          <label class="choice"><input type="radio" name="q6" value="b"> Generative AI</label>
+          <label class="choice"><input type="radio" name="q6" value="c"> Reinforcement Learning</label>
+          <label class="choice"><input type="radio" name="q6" value="d"> Computer Vision</label>
+        </div>
+      </fieldset>
+
+      <!-- Question 7: multiple choice (one correct answer) -->
+      <fieldset class="question" id="q7-card">
+        <legend>7. Multiple choice</legend>
+        <p>What did the 1966 program ELIZA demonstrate?</p>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="q7" value="a"> Early natural-language conversation</label>
+          <label class="choice"><input type="radio" name="q7" value="b"> Image recognition with deep learning</label>
+          <label class="choice"><input type="radio" name="q7" value="c"> Autonomous vehicle navigation</label>
+          <label class="choice"><input type="radio" name="q7" value="d"> Winning at chess</label>
+        </div>
+      </fieldset>
+
+      <!-- Question 8: multiple choice using a drop-down list -->
+      <fieldset class="question" id="q8-card">
+        <legend>8. Multiple choice</legend>
+        <p>
+          <label for="q8-select">Which neural network architecture, introduced in 2017, powers modern large language models such as ChatGPT?</label>
+        </p>
+        <select name="q8" id="q8-select">
+          <option value="">-- Choose an answer --</option>
+          <option value="a">Perceptron</option>
+          <option value="b">Transformer</option>
+          <option value="c">Decision Tree</option>
+          <option value="d">Expert System</option>
+        </select>
+      </fieldset>
+
+      <!-- Question 9: multi-selection (more than one correct answer) -->
+      <fieldset class="question" id="q9-card">
+        <legend>9. Select all that apply</legend>
+        <p>Which of the following types of content can generative AI create?</p>
+        <div class="choices">
+          <label class="choice"><input type="checkbox" name="q9" value="a"> Text</label>
+          <label class="choice"><input type="checkbox" name="q9" value="b"> Images</label>
+          <label class="choice"><input type="checkbox" name="q9" value="c"> Physical computer hardware</label>
+          <label class="choice"><input type="checkbox" name="q9" value="d"> Computer code</label>
+          <label class="choice"><input type="checkbox" name="q9" value="e"> Audio</label>
+        </div>
+      </fieldset>
+
+      <!-- Question 10: multi-selection (more than one correct answer) -->
+      <fieldset class="question" id="q10-card">
+        <legend>10. Select all that apply</legend>
+        <p>Which of the following are real-world uses of AI described on this website?</p>
+        <div class="choices">
+          <label class="choice"><input type="checkbox" name="q10" value="a"> Analyzing medical images</label>
+          <label class="choice"><input type="checkbox" name="q10" value="b"> Recommending shows on streaming services</label>
+          <label class="choice"><input type="checkbox" name="q10" value="c"> Powering a computer's power supply</label>
+          <label class="choice"><input type="checkbox" name="q10" value="d"> Detecting spam email</label>
+        </div>
+      </fieldset>
+
+      <!-- Form actions -->
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit Quiz</button>
+        <button type="button" id="reset-btn" class="btn btn-secondary">Reset Quiz</button>
+      </div>
+    </form>
+  </main>
+  <!-- Footer with class project information -->
+  <footer>
+    <p>This website was created as a class project for IT 3203 at Kennesaw State University.</p>
+    <p><a href="https://ksuweb.github.io/IT3203/">IT 3203 Course Website</a></p>
+  </footer>
+  <script src="quiz.js"></script>
+</body>
+</html>
